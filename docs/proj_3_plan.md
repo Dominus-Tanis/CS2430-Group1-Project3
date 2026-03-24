@@ -8,9 +8,9 @@ Start Date; 2026-03-23
 End Date: 4/10/2026
 
 **Roles:**   
-Implementation Lead: Cory
-Verification Lead: Ben
-Communications Lead: Spencer
+Implementation Lead: Cory  
+Verification Lead: Ben  
+Communications Lead: Spencer  
 
 
 | Milestone | Target Date | Owner | Definition Of Done | Status (NS/IP/D) | Link |

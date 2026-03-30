@@ -1,0 +1,54 @@
+package cs2430program3;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author Cory
+ */
+public class Payload {
+
+    private List<Experiment> experiments;
+    private int weight;
+    private int rating;
+
+    public Payload() {
+        experiments = new ArrayList<>();
+    }
+    
+    public Payload(List<Experiment> externalExperimentList) {
+        experiments = new ArrayList<>();
+        for(Experiment experiment : externalExperimentList) {
+            experiments.add(experiment);
+            weight += experiment.getWeight();
+            rating += experiment.getRating();
+        }
+    }
+    
+    public String experimentList() {
+        String experimentList = "";
+        for (Experiment experiment : experiments) {
+            if (experimentList.isEmpty()){
+                experimentList += experiment.getName();
+            } else {
+                experimentList += ", " + experiment.getName();
+            }
+        }
+        return "Experiments: " + experimentList;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void addExperiment(Experiment experiment) {
+        experiments.add(experiment);
+        weight += experiment.getWeight();
+        rating += experiment.getRating();
+    }
+}

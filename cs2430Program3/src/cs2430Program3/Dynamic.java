@@ -4,29 +4,29 @@ import java.util.ArrayList;
 
 public class Dynamic {
     public static void main(String[] args) {
-		//  Experiment[] experiments = {
-        //      new Experiment("Cloud Patterns",            36,  5),
-        //      new Experiment("Solar Flares",              264, 9),
-        //      new Experiment("Solar Power",               188, 6),
-        //      new Experiment("Binary Stars",              203, 8),
-        //      new Experiment("Relativity",                104, 8),
-        //      new Experiment("Seed Viability",            7,   4),
-        //      new Experiment("Sun Spots",                 90,  2),
-        //      new Experiment("Mice Tumors",               65,  8),
-        //      new Experiment("Microgravity Plant Growth", 75,  5),
-        //      new Experiment("Micrometeorites",           170, 9),
-        //      new Experiment("Cosmic Rays",               80,  7),
-        //      new Experiment("Yeast Fermentation",        27,  4),
-        //  };
-        //  Payload result = calculate(experiments, 700);
+		 Experiment[] experiments = {
+             new Experiment("Cloud Patterns",            36,  5),
+             new Experiment("Solar Flares",              264, 9),
+             new Experiment("Solar Power",               188, 6),
+             new Experiment("Binary Stars",              203, 8),
+             new Experiment("Relativity",                104, 8),
+             new Experiment("Seed Viability",            7,   4),
+             new Experiment("Sun Spots",                 90,  2),
+             new Experiment("Mice Tumors",               65,  8),
+             new Experiment("Microgravity Plant Growth", 75,  5),
+             new Experiment("Micrometeorites",           170, 9),
+             new Experiment("Cosmic Rays",               80,  7),
+             new Experiment("Yeast Fermentation",        27,  4),
+         };
+         Payload result = calculate(experiments, 700);
 
-       Experiment[] experiments = {
-           new Experiment("Sheet", 3, 4),
-           new Experiment("Box",   6, 5),
-           new Experiment("Bag",   5, 5),
-           new Experiment("Spec",  1, 1),
-       };
-       Payload result = calculate(experiments, 10);
+    //    Experiment[] experiments = {
+    //        new Experiment("Sheet", 3, 4),
+    //        new Experiment("Box",   6, 5),
+    //        new Experiment("Bag",   5, 5),
+    //        new Experiment("Spec",  1, 1),
+    //    };
+    //    Payload result = calculate(experiments, 10);
         
         
         System.out.println(result.experimentList());
@@ -38,7 +38,7 @@ public class Dynamic {
         for(int[] row : table) {
             System.out.printf("\n[ ");
             for(int cell : row) {
-                System.out.printf("%d ", cell);
+                System.out.printf("%d\t", cell);
             }
             System.out.printf("]");
         }
@@ -106,6 +106,7 @@ public class Dynamic {
     private static void addExperiment(int[][] table, int row, Experiment experiment) {
         for(int weight=0; weight<table[0].length; weight++) {
             if(experiment.getWeight() > weight) {
+                table[row][weight] = above(table, row, weight);
                 continue;
             }
             int prevScoreBack = getPrevScore(table, row, weight, experiment.getWeight());

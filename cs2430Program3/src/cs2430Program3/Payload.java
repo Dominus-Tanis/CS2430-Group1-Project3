@@ -1,4 +1,4 @@
-package cs2430program3;
+package cs2430Program3;
 
 import java.util.ArrayList;
 import java.util.List;

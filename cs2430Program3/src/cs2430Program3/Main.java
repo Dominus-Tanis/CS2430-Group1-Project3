@@ -7,7 +7,6 @@ package cs2430Program3;
  * @author
  */
 public class Main {
-
 	public static void main(String[] args) {
 		Experiment[] experiments = {new Experiment("Cloud Patterns", 36, 5),
             new Experiment("Solar Flares", 264, 9),
@@ -57,6 +56,4 @@ public class Main {
 		System.out.println("Payload Weight: " + payload.getWeight());
 		System.out.println("Payload " + payload.experimentList());
 	}
-
-
 }

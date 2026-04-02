@@ -1,8 +1,10 @@
 package cs2430Program3;
 /**
- * 
+ * Main is the test class for Project 3 and incleudes the main method.
+ * TODO
+ *
  * @author Spencer J Peck
- * @author
+ * @author Benjamin Shaw
  * @author
  * @author
  */

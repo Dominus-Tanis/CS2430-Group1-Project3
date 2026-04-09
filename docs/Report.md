@@ -6,14 +6,25 @@ CS 2430 Semester 2
 Knapsack Problem & Optimal Selection
 
 ## Introduction
+In this project we were tasked with implementing ways of solving a rendition of the knapsack problem. The knapsack problem involves finding the best combination of items to include given capacity restrictions of some kind. This can be anything from what is the most important items to store in a hiking bag, to what tasks should be worked on given a limited amount of time. In this project we were faced with the question of what scientific experiments should be included in the payload of a rocket headed to space.
 
 ## Methods
+We implemented several different methods of filling the payload, these methods ranged from selecting experiments based on single parameters to testing every single possible combination in a brute force method.
+Each experiment had an identifier and two parameters; how much it weighed and the rating of how valuable that experiment was considered to be.
 
 ### Rating-first
+This method looked at the list of experiments and selected which ones would be included in the payload based on which remaining experiments had the highest rating. This strategy reflects someone trying to pack the most valuable items first regardless of any other factors.
+
+This was accomplished by looping through the list to find the highest rated experiment that would not pass the weight limit and adding it to the payload.
 
 ### Weight-first
+This strategy involved selecting the experiments based on which one weighed the least. This strategy reflects the mindset that regardless of importance filling the space with the highest number of items will end in a better result.
+This was also accomplished by looping through the list of experiments to find the lightest item, which was then added to the payload, without breaking the weight constraints of the rocket payload.
 
-### Ratio-first
+### Rating-Weight Ratio-first
+Ratio first combines the two approaches and selects what experiments will be entered into the payload based on the ratio of the importance of the item and the weight of the item. 
+As with the other two greedy strategies this method involved looping through the experiments and finding the item who had the best weight / rating ratio.
+
 
 ### Brute-force
 

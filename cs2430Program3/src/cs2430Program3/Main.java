@@ -1,12 +1,13 @@
 package cs2430Program3;
 /**
+ * Group 1 Cory Neilsen, Spencer Peck, Benjamin Shaw, Dallin Yauney CS 2430-002
+ * Project 3: Optimal Selection – Spring 2026
+ * 
  * Main is the test class for Project 3 and incleudes the main method.
  * TODO
  *
  * @author Spencer J Peck
  * @author Benjamin Shaw
- * @author
- * @author
  */
 public class Main {
 	public static void main(String[] args) {
@@ -23,12 +24,27 @@ public class Main {
             new Experiment("Cosmic Rays", 80, 7),
             new Experiment("Yeast Fermentation", 27, 4)};
 		
-		Payload test = new Payload();
-		for(Experiment exp : experiments) {
-			test.addExperiment(exp);
-		}
-		printTitle("Brute Force Test 1");
-		printPayload(test);
+		
+		printTitle("\nProgramming Project 3: Optimal selection\n");
+
+		printTitle("Strategy: Best Rating First");
+		printPayload(GreedyStrategies.highestRatingFirst(experiments));
+
+		printTitle("Strategy: Lightest First");
+		printPayload(GreedyStrategies.lightestFirst(experiments));
+		
+		printTitle("Strategy: Best Rating to Weight");
+		printPayload(GreedyStrategies.bestRatingToWeightFirst(experiments));
+		
+
+		Payload[] bruteForcePayloads = BruteForce.bruteForce(experiments);
+		for(int i = 0; i < 3; i++) {
+			printTitle("Strategy: Brute Force #" + (i+1));
+			printPayload(bruteForcePayloads[i]);
+;		}
+		
+		printTitle("Strategy: Dynamic");
+		printPayload(Dynamic.calculate(experiments, 700));
 		
 		
 	}
@@ -40,7 +56,7 @@ public class Main {
 	 * @author Spencer J Peck
 	 */
 	private static void printTitle(String titleName) {
-		System.out.printf("\n====================\n%10s\n====================\n",titleName);
+		System.out.printf("\n==============================\n%15s\n==============================\n",titleName);
 	}
 	/**
 	 * Prints out information from the Payload class.

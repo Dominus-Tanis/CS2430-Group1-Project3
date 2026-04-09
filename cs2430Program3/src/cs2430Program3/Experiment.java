@@ -1,6 +1,8 @@
 package cs2430Program3;
 
 /**
+ * Group 1 Cory Neilsen, Spencer Peck, Benjamin Shaw, Dallin Yauney CS 2430-002
+ * Project 3: Optimal Selection – Spring 2026
  *
  * @author Cory
  */

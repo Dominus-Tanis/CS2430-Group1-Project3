@@ -89,7 +89,7 @@ public class GreedyStrategies {
 	 */
 	private static Experiment lightestExperiment(ArrayList<Experiment> experiments) {
 		int lightestIndex = 0;
-		int lightest = 0;
+		int lightest = Integer.MAX_VALUE;
 		for (Experiment experiment : experiments) {
 			if (lightest > experiment.getWeight()) {
 				lightest = experiment.getWeight();

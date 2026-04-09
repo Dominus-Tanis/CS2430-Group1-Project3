@@ -24,10 +24,10 @@ public class GreedyStrategies {
 	 * @param experiments
 	 * @return the highest rated Payload
 	 */
-	public Payload highestRatingFirst(Experiment[] experiments) {
+	public static Payload highestRatingFirst(Experiment[] experiments) {
 		ArrayList<Experiment> experimentsList = new ArrayList<Experiment>(Arrays.asList(experiments));
 		Payload output = new Payload();
-		while (output.getWeight() + highestRatingExperiment(experimentsList).getWeight() < 700) {
+		while (output.getWeight() + highestRatingExperiment(experimentsList).getWeight() <= 700) {
 			output.addExperiment(highestRatingExperiment(experimentsList));
 			experimentsList.remove(highestRatingExperiment(experimentsList));
 		}
@@ -44,7 +44,7 @@ public class GreedyStrategies {
 	 * @param experiments
 	 * @return highest rated experiment
 	 */
-	private Experiment highestRatingExperiment(ArrayList<Experiment> experiments) {
+	private static Experiment highestRatingExperiment(ArrayList<Experiment> experiments) {
 		int highestRatingIndex = 0;
 		int highestRating = 0;
 		for (Experiment experiment : experiments) {
@@ -67,10 +67,10 @@ public class GreedyStrategies {
 	 * @param experiments
 	 * @return most dense Payload
 	 */
-	public Payload lightestFirst(Experiment[] experiments) {
+	public static Payload lightestFirst(Experiment[] experiments) {
 		ArrayList<Experiment> experimentsList = new ArrayList<Experiment>(Arrays.asList(experiments));
 		Payload output = new Payload();
-		while (output.getWeight() + lightestExperiment(experimentsList).getWeight() < 700) {
+		while (output.getWeight() + lightestExperiment(experimentsList).getWeight() <= 700) {
 			output.addExperiment(lightestExperiment(experimentsList));
 			experimentsList.remove(lightestExperiment(experimentsList));
 		}
@@ -85,9 +85,9 @@ public class GreedyStrategies {
 	 * experiment by getting it by the index
 	 * 
 	 * @param experiments
-	 * @return
+	 * @return the lightest experiment
 	 */
-	private Experiment lightestExperiment(ArrayList<Experiment> experiments) {
+	private static Experiment lightestExperiment(ArrayList<Experiment> experiments) {
 		int lightestIndex = 0;
 		int lightest = 0;
 		for (Experiment experiment : experiments) {
@@ -110,10 +110,10 @@ public class GreedyStrategies {
 	 * @param experiments
 	 * @return best rating to weight ratio Payload
 	 */
-	public Payload bestRatingToWeightFirst(Experiment[] experiments) {
+	public static Payload bestRatingToWeightFirst(Experiment[] experiments) {
 		ArrayList<Experiment> experimentsList = new ArrayList<Experiment>(Arrays.asList(experiments));
 		Payload output = new Payload();
-		while (output.getWeight() + bestRatingToWeightExperiment(experimentsList).getWeight() < 700) {
+		while (output.getWeight() + bestRatingToWeightExperiment(experimentsList).getWeight() <= 700) {
 			output.addExperiment(bestRatingToWeightExperiment(experimentsList));
 			experimentsList.remove(bestRatingToWeightExperiment(experimentsList));
 		}
@@ -130,7 +130,7 @@ public class GreedyStrategies {
 	 * @param experiments
 	 * @return highest rating to weight experiment
 	 */
-	private Experiment bestRatingToWeightExperiment(ArrayList<Experiment> experiments) {
+	private static Experiment bestRatingToWeightExperiment(ArrayList<Experiment> experiments) {
 		int bestRatingToWeightIndex = 0;
 		int bestRatingToWeight = 0;
 		for (Experiment experiment : experiments) {

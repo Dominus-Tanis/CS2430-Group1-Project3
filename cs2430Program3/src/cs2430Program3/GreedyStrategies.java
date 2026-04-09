@@ -18,7 +18,7 @@ public class GreedyStrategies {
 	 * highestRatingFirst creates the highest rated Payload by implementing
 	 * the highestRatingExperiment method to get the highest rated experiment
 	 * and add it to the Payload to then return the Payload and have it be
-	 * less than 700 weight
+	 * less than or equal to 700 weight
 	 * 
 	 * 
 	 * @param experiments
@@ -62,7 +62,7 @@ public class GreedyStrategies {
 	 * lightestFirst creates a Payload that has all the lightest experiments
 	 * by implementing the lightestExperiment method to get the lightest 
 	 * experiment and add it to the Payload to then return the Payload and
-	 * have it be less than 700 weight
+	 * have it be less than or equal to 700 weight
 	 * 
 	 * @param experiments
 	 * @return most dense Payload
@@ -105,7 +105,7 @@ public class GreedyStrategies {
 	 * bestRatingToWeightFirst creates the best rating to weight ratio Payload
 	 * by implementing the bestRatingToWeightExperiment method to get the highest
 	 * rated to weight experiment and add it to the Payload to then return the
-	 * Payload and have it be less than 700 weight
+	 * Payload and have it be less than or equal to 700 weight
 	 * 
 	 * @param experiments
 	 * @return best rating to weight ratio Payload

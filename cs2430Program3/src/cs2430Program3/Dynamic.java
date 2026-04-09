@@ -3,6 +3,9 @@ package cs2430Program3;
 import java.util.ArrayList;
 
 /**
+ * Group 1 Cory Neilsen, Spencer Peck, Benjamin Shaw, Dallin Yauney CS 2430-002
+ * Project 3: Optimal Selection – Spring 2026
+ * 
  * Solution to the knapsack problem designed to be more efficient than
  * brute force, but almost as good. Uses the ideas of Dynamic Programming
  * to create a table and gradually add experiments to the table, keeping track

@@ -1,4 +1,4 @@
-package cs2430program3;
+package cs2430Program3;
 
 /**
  * Group 1 Cory Neilsen, Spencer Peck, Benjamin Shaw, Dallin Yauney CS 2430-002
@@ -70,10 +70,10 @@ public class BruteForce {
         }
 
         // Both prints formatted output and returns the Array of the top three.
-        System.out.println("Brute Force Results\n");
-        System.out.println("First Place -\n" + topThree[0].experimentList() + "\nWeight: " + topThree[0].getWeight() + "\nRating: " + topThree[0].getRating() + "\n");
-        System.out.println("Second Place -\n" + topThree[1].experimentList() + "\nWeight: " + topThree[1].getWeight() + "\nRating: " + topThree[1].getRating() + "\n");
-        System.out.println("Third Place -\n" + topThree[2].experimentList() + "\nWeight: " + topThree[2].getWeight() + "\nRating: " + topThree[2].getRating());
+        //System.out.println("Brute Force Results\n");
+        //System.out.println("First Place -\n" + topThree[0].experimentList() + "\nWeight: " + topThree[0].getWeight() + "\nRating: " + topThree[0].getRating() + "\n");
+        //System.out.println("Second Place -\n" + topThree[1].experimentList() + "\nWeight: " + topThree[1].getWeight() + "\nRating: " + topThree[1].getRating() + "\n");
+        //System.out.println("Third Place -\n" + topThree[2].experimentList() + "\nWeight: " + topThree[2].getWeight() + "\nRating: " + topThree[2].getRating());
         return topThree;
     }
 

@@ -18,7 +18,7 @@ public class BruteForce {
      * Generates all possible Payloads of Experiments and outputs the three
      * highest-rated valid Payloads (weight less than or equal to 700)
      *
-     * @param arr
+     * @param arr Input array of experiments.
      * @return Array containing the top three payloads. Best at index 0, worst
      * at index 2.
      */

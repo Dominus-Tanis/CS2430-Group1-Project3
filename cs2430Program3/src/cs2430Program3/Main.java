@@ -3,15 +3,15 @@ package cs2430Program3;
  * Group 1 Cory Neilsen, Spencer Peck, Benjamin Shaw, Dallin Yauney CS 2430-002
  * Project 3: Optimal Selection – Spring 2026
  * 
- * Main is the test class for Project 3 and incleudes the main method.
- * TODO
+ * Main is the test class for Project 3 and includes the main method.
  *
  * @author Spencer J Peck
  * @author Benjamin Shaw
  */
 public class Main {
 	public static void main(String[] args) {
-		Experiment[] experiments = {new Experiment("Cloud Patterns", 36, 5),
+		Experiment[] experiments = {
+			new Experiment("Cloud Patterns", 36, 5),
             new Experiment("Solar Flares", 264, 9),
             new Experiment("Solar Power", 188, 6),
             new Experiment("Binary Stars", 203, 8),
@@ -22,8 +22,8 @@ public class Main {
             new Experiment("Microgravity Plant Growth", 75, 5),
             new Experiment("Micrometeorites", 170, 9),
             new Experiment("Cosmic Rays", 80, 7),
-            new Experiment("Yeast Fermentation", 27, 4)};
-		
+            new Experiment("Yeast Fermentation", 27, 4)
+		};
 		
 		printTitle("\nProgramming Project 3: Optimal selection\n");
 
@@ -41,13 +41,12 @@ public class Main {
 		for(int i = 0; i < 3; i++) {
 			printTitle("Strategy: Brute Force #" + (i+1));
 			printPayload(bruteForcePayloads[i]);
-;		}
+		}
 		
 		printTitle("Strategy: Dynamic");
 		printPayload(Dynamic.calculate(experiments, 700));
-		
-		
 	}
+
 	/**
 	 * Uses system printf to print a title that is roofed and floored by a "=" frame.
 	 * This method was created to provide a uniform way of creating titles
@@ -58,6 +57,7 @@ public class Main {
 	private static void printTitle(String titleName) {
 		System.out.printf("\n==============================\n%15s\n==============================\n",titleName);
 	}
+
 	/**
 	 * Prints out information from the Payload class.
 	 * This method was created to provide an external way of printing the Payload object-
@@ -70,6 +70,7 @@ public class Main {
 		if(payload == null) {
 			return;
 		}
+		
 		System.out.println("Payload Rating: "+ payload.getRating());
 		System.out.println("Payload Weight: " + payload.getWeight());
 		System.out.println("Payload " + payload.experimentList());

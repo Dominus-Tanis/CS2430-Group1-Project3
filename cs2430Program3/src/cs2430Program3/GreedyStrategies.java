@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * GreedyStrategies has six methods.  3 of them are publicly available
+ * GreedyStrategies has six methods. 3 of them are publicly available
  * for you to get the highest rated, lightest, and highest rated to weight
- * Payloads.  The other 3 classes are helper methods to help you with
+ * Payloads. The other 3 classes are helper methods to help you with
  * getting those by returning the rated, lightest, and highest rated to
  * weight experiments.
  * 
@@ -20,7 +20,6 @@ public class GreedyStrategies {
 	 * and add it to the Payload to then return the Payload and have it be
 	 * less than or equal to 700 weight
 	 * 
-	 * 
 	 * @param experiments
 	 * @return the highest rated Payload
 	 */
@@ -33,8 +32,6 @@ public class GreedyStrategies {
 		}
 		return output;
 	}
-	
-	
 	
 	/**
 	 * highestRatingExperiment returns the highest rated experiment by
@@ -56,8 +53,6 @@ public class GreedyStrategies {
 		return experiments.get(highestRatingIndex);
 	}
 	
-
-	
 	/**
 	 * lightestFirst creates a Payload that has all the lightest experiments
 	 * by implementing the lightestExperiment method to get the lightest 
@@ -77,8 +72,6 @@ public class GreedyStrategies {
 		return output;
 	}
 
-	
-	
 	/**
 	 * lightestExperiment returns the lightest experiment by getting the 
 	 * element by comparison and get the index to then return the lightest
@@ -99,13 +92,15 @@ public class GreedyStrategies {
 		return experiments.get(lightestIndex);
 	}
 	
-	
-	
 	/**
 	 * bestRatingToWeightFirst creates the best rating to weight ratio Payload
 	 * by implementing the bestRatingToWeightExperiment method to get the highest
 	 * rated to weight experiment and add it to the Payload to then return the
 	 * Payload and have it be less than or equal to 700 weight
+	 * 
+	 * It's possible for this method to perform better under the current experiments,
+	 * by checking against *all* experiments rather than stopping after one becomes too
+	 * heavy, but we didn't end up doing that this time.
 	 * 
 	 * @param experiments
 	 * @return best rating to weight ratio Payload
@@ -120,22 +115,20 @@ public class GreedyStrategies {
 		return output;
 	}
 
-	
-	
 	/**
 	 * bestRatingToWeightExperiment returns the highest rating to weight
 	 * experiment by getting the element by comparison and get the index to
-	 *  then return the lightest experiment by getting it by the index
+	 * then return the lightest experiment by getting it by the index
 	 * 
 	 * @param experiments
 	 * @return highest rating to weight experiment
 	 */
 	private static Experiment bestRatingToWeightExperiment(ArrayList<Experiment> experiments) {
 		int bestRatingToWeightIndex = 0;
-		int bestRatingToWeight = 0;
+		double bestRatingToWeight = 0;
 		for (Experiment experiment : experiments) {
-			if (bestRatingToWeight < experiment.getRating() / experiment.getWeight()) {
-				bestRatingToWeight = experiment.getRating() / experiment.getWeight();
+			if (bestRatingToWeight < experiment.getScore()) {
+				bestRatingToWeight = experiment.getScore();
 				bestRatingToWeightIndex = experiments.indexOf(experiment);
 			}
 		}

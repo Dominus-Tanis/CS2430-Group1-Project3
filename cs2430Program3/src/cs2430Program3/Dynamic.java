@@ -67,14 +67,14 @@ public class Dynamic {
             }
 
             // subtract the current experiment's weight. How well did previous experiments
-            // do for that weight. If it wasn't very good, we might be able to add this experiment
+            // do for that weight? If it wasn't very good, we might be able to add this experiment
             // to it for the current weight to get a better rating
             int prevScoreBack = getAbove(table, row, weight - experiment.getWeight());
 
             // how well would we do combining the current experiment with prevScoreBack?
             int candidateScore = prevScoreBack + experiment.getRating();
 
-            // How well did the previous experiments do for the current weight?
+            // how well did the previous experiments do for the current weight?
             int prevScoreAbove = getAbove(table, row, weight);
 
             // set the current weight's rating to be whichever one was better

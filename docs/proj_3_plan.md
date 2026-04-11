@@ -33,6 +33,6 @@ Communications Lead: Spencer
 | Brute Force | 4/6/26 | Cory | Working & Commented Brute Force Method | D | [Commit](https://github.com/Dominus-Tanis/CS2430-Group1-Project3/commit/ce1ac68179e00dc5f686edf09fc51c03178322d6) |
 | Dynamic Programming | 3/31/26 | Dallin | Working DP solution implemented & commented | D | [PR 1](https://github.com/Dominus-Tanis/CS2430-Group1-Project3/pull/1) |
 | Output | 4/8/26 | Spencer | Clean, Well Formated Output | D | [Commit](https://github.com/Dominus-Tanis/CS2430-Group1-Project3/commit/3989dc9e3785bf23a9e0e41cd751275c5ff99f55) |
-| Summary | 4/8/26 | Spencer | Summary of Output | D | [Commit]() |
+| Summary | 4/8/26 | Spencer | Summary of Output | D |  |
 | Team Report | 4/10/26 | Spencer | Team Report Covering All Points Outlined In Project Assignment | D |  |
 | Screencast | 4/10/26 |  | Complete Screencast With Clips From Each Team Member | D |  |

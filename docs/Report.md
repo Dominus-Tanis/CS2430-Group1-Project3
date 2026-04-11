@@ -10,7 +10,7 @@ In this project we were tasked with implementing ways of solving a rendition of 
 
 ## Methods
 We implemented several different methods of filling the payload, these methods ranged from selecting experiments based on single parameters to testing every single possible combination in a brute force method.
-Each experiment had an identifier and two parameters; how much it weighed and the rating of how valuable that experiment was considered to be.
+Each experiment had an identifier and two parameters; how much it weighed and the rating of how valuable that experiment was considered to be. All code was written in Java.
 
 ### Rating-first
 This method looked at the list of experiments and selected which ones would be included in the payload based on which remaining experiments had the highest rating. This strategy reflects someone trying to pack the most valuable items first regardless of any other factors.
@@ -41,6 +41,104 @@ Why do we do the calculations for every possible weight? Suppose a heavy but val
 The way I checked that it was working correctly as I was developing it was to have a separate, much simpler test case with only a couple of experiments and a much smaller weight limit so I could examine the DP table itself. Once I felt right about the test case, and the results for the real experiments were not only correct but better than I could do by hand, I decided that was good enough. Later I found out that the brute-force solution matched the DP solution, which confirmed that my algorithm was correct.
 
 ## Results
+Below are the results for each method, with Dynamic and Brute Force producing a result with a tied best value.
+**Greedy: Highest Rating First**
+
+| Experiments     | Weight | Rating |
+| --------------- | ------ | ------ |
+| Solar Flares    | 264    | 9      |
+| Micrometeorites | 170    | 9      |
+| Binary Stars    | 203    | 8      |
+| Total           | 637    | 26     |
+
+**Greedy: Lightest First**
+
+| Experiments               | Weight | Rating |
+| ------------------------- | ------ | ------ |
+| Seed Viability            | 7      | 4      |
+| Yeast Fermentation        | 27     | 4      |
+| Cloud Patterns            | 36     | 5      |
+| Mice Tumors               | 65     | 8      |
+| Microgravity Plant Growth | 75     | 5      |
+| Cosmic Rays               | 80     | 7      |
+| Sun Spots                 | 90     | 2      |
+| Relativity                | 104    | 8      |
+| Micrometeorites           | 170    | 9      |
+| Totals                    | 654    | 52     |
+
+**Greedy: Best Rating to Weight First**
+
+| Experiments               | Weight | Rating |
+| ------------------------- | ------ | ------ |
+| Seed Viability            | 7      | 4      |
+| Yeast Fermentation        | 27     | 4      |
+| Cloud Patterns            | 36     | 5      |
+| Mice Tumors               | 65     | 8      |
+| Cosmic Rays               | 80     | 7      |
+| Relativity                | 104    | 8      |
+| Microgravity Plant Growth | 75     | 5      |
+| Micrometeorites           | 170    | 9      |
+| Totals                    | 564    | 50     |
+
+
+**Brute Force: Best**
+
+| Experiments        | Weight | Rating |
+| ------------------ | ------ | ------ |
+| Cloud Patterns     | 36     | 5      |
+| Binary Stars       | 203    | 8      |
+| Relativity         | 104    | 8      |
+| Seed Viability     | 7      | 4      |
+| Mice Tumors        | 65     | 8      |
+| Micrometeorites    | 170    | 9      |
+| Cosmic Rays        | 80     | 7      |
+| Yeast Fermentation | 27     | 4      |
+| Totals             | 692    | 53     |
+
+**Brute Force: 2nd Best**
+
+| Experiments               | Weight | Rating |
+| ------------------------- | ------ | ------ |
+| Cloud Patterns            | 36     | 5      |
+| Relativity                | 104    | 8      |
+| Seed Viability            | 7      | 4      |
+| Sun Spots                 | 90     | 2      |
+| Mice Tumors               | 65     | 8      |
+| Microgravity Plant Growth | 75     | 5      |
+| Cosmic Rays               | 80     | 7      |
+| Yeast Fermentation        | 27     | 4      |
+| Micrometeorites           | 170    | 9      |
+| Totals                    | 654    | 52     |
+
+
+**Brute Force: 3rd Best**
+
+| Experiments               | Weight | Rating |
+| ------------------------- | ------ | ------ |
+| Cloud Patterns            | 36     | 5      |
+| Binary Stars              | 203    | 8      |
+| Relativity                | 104    | 8      |
+| Seed Viability            | 7      | 4      |
+| Mice Tumors               | 65     | 8      |
+| Microgravity Plant Growth | 75     | 5      |
+| Micrometeorites           | 170    | 9      |
+| Yeast Fermentation        | 27     | 4      |
+| Totals                    | 687    | 51     |
+
+**Dynamic:**
+
+| Experiments        | Weight | Rating |
+| ------------------ | ------ | ------ |
+| Cloud Patterns     | 36     | 5      |
+| Binary Stars       | 203    | 8      |
+| Relativity         | 104    | 8      |
+| Seed Viability     | 7      | 4      |
+| Mice Tumors        | 65     | 8      |
+| Micrometeorites    | 170    | 9      |
+| Cosmic Rays        | 80     | 7      |
+| Yeast Fermentation | 27     | 4      |
+| Totals             | 692    | 53     |
+
 
 ## Discussion
 ### Greedy vs Brute-force Results
@@ -56,7 +154,10 @@ The current brute-force approach, by my calculations, is actually faster than th
 Our worst-performing algorithm was the rating-first approach, in large part because there are several experiments with the same rating, but vastly different weights. By default, the algorithm has no way to sort between these, choosing more or less randomly. Letting this algorithm break the tie between different 8-rated experiments, choosing the one with the least weight, ended up performing nearly 75% better: it went from 26 points with no extra logic to 45 points choosing the lightest of the best-rated experiments. Not nearly as well as the lightest-first solution, but a big improvement, and I theorize that on sets with a greater difference in score (rather than being 4-9) this improvement would only grow.
 
 ## Conclusion
+This project perfectly illustrated the complexities of the 0/1 Knapsack program. While our project only dealt with a few values, real problems would involve greater values. These greater values would cause great problems for our methods here, Brute Force while providing an assured best value, grows in polynomial time and while our other method with Dynamic programming grows in exponential, mixing these with a problem that has even just a hundred values would result in 1.2E36 operations with exponential growth. Due to this it becomes necessary to determine a "Good Enough" approach for solving these issues. The Greedy strategy that compares weight to rating is a good example of this, with much reduced compute time, instead sacrificing efficiency. It is to be noted however that this is only regarding two parameters and in real world scenarios there may be other parameters to consider that play into each items rating, who's value may change depending on other factors.
 
 ## Summary of Work Done / Lessons Learned
 
 ## Sources
+Resources used for Brute Force logic: Geeks For Geeks
+  https://www.geeksforgeeks.org/dsa/backtracking-to-find-all-subsets/

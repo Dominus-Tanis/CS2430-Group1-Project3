@@ -35,4 +35,4 @@ Communications Lead: Spencer
 | Output | 4/8/26 | Spencer | Clean, Well Formated Output | D | [Commit](https://github.com/Dominus-Tanis/CS2430-Group1-Project3/commit/3989dc9e3785bf23a9e0e41cd751275c5ff99f55) |
 | Summary | 4/8/26 | Spencer | Summary of Output | D |  |
 | Team Report | 4/10/26 | Spencer | Team Report Covering All Points Outlined In Project Assignment | D |  |
-| Screencast | 4/10/26 |  | Complete Screencast With Clips From Each Team Member | D | [Vid Link](https://drive.google.com/file/d/1yBYzmNRpBa8diatZi9J-GCC45RGkmRNl/view?usp=sharing) |
+| Screencast | 4/10/26 | All + Dallin | Complete Screencast With Clips From Each Team Member | D | [Vid Link](https://drive.google.com/file/d/1yBYzmNRpBa8diatZi9J-GCC45RGkmRNl/view?usp=sharing) |

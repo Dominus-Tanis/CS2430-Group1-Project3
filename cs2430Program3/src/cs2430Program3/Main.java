@@ -27,23 +27,30 @@ public class Main {
 		
 		printTitle("\nProgramming Project 3: Optimal selection\n");
 
-		printTitle("Strategy: Best Rating First");
-		printPayload(GreedyStrategies.highestRatingFirst(experiments));
-
-		printTitle("Strategy: Lightest First");
-		printPayload(GreedyStrategies.lightestFirst(experiments));
-		
-		printTitle("Strategy: Best Rating to Weight");
-		printPayload(GreedyStrategies.bestRatingToWeightFirst(experiments));
-		
-
 		Payload[] bruteForcePayloads = BruteForce.bruteForce(experiments);
+		Payload bestPayload = bruteForcePayloads[0];
 		for(int i = 0; i < 3; i++) {
 			printTitle("Strategy: Brute Force #" + (i+1));
+			printCompareToBestPayload(bestPayload,bruteForcePayloads[i]);
 			printPayload(bruteForcePayloads[i]);
 		}
 		
+		printTitle("Strategy: Best Rating First");
+		printCompareToBestPayload(bestPayload,GreedyStrategies.highestRatingFirst(experiments));
+		printPayload(GreedyStrategies.highestRatingFirst(experiments));
+
+		printTitle("Strategy: Lightest First");
+		printCompareToBestPayload(bestPayload,GreedyStrategies.lightestFirst(experiments));
+		printPayload(GreedyStrategies.lightestFirst(experiments));
+		
+		printTitle("Strategy: Best Rating to Weight");
+		printCompareToBestPayload(bestPayload,GreedyStrategies.bestRatingToWeightFirst(experiments));
+		printPayload(GreedyStrategies.bestRatingToWeightFirst(experiments));
+		
+
+		
 		printTitle("Strategy: Dynamic");
+		printCompareToBestPayload(bestPayload,Dynamic.calculate(experiments, 700));
 		printPayload(Dynamic.calculate(experiments, 700));
 	}
 
@@ -74,5 +81,10 @@ public class Main {
 		System.out.println("Payload Rating: "+ payload.getRating());
 		System.out.println("Payload Weight: " + payload.getWeight());
 		System.out.println("Payload " + payload.experimentList());
+	}
+	
+	private static void printCompareToBestPayload(Payload bestPayload, Payload otherPayload) {
+		System.out.print("This Strategy "+ (otherPayload.getRating() == bestPayload.getRating()?"achieves ":"does not achieve "));
+		System.out.println("the optimal payload.");
 	}
 }

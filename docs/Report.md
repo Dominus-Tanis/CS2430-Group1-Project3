@@ -42,6 +42,7 @@ The way I checked that it was working correctly as I was developing it was to ha
 
 ## Results
 Below are the results for each method, with Dynamic and Brute Force producing a result with a tied best value.
+
 **Greedy: Highest Rating First**
 
 | Experiments     | Weight | Rating |
